@@ -1,0 +1,26 @@
+php artisan crud:generate Demandes --fields='Nom du Produit#string; Date Fab#date; Date Exp#date;formeGalenique#select#options={"sirop": "Sirop", "comprime": "Comprime", "ampoule": "Ampoule", "gelulle": "gelulle"}; client#select#options={"pna": "PNA", "instPast": "Institut Pasteur", "Dir_Labo": "Direction Labo", "Sphinx_lab": "Sphinx Lab"}' --view-path=admin --controller-namespace=Admin --route-group=admin --form-helper=html
+
+idEch                int not null,
+   dateRecu             datetime,
+   nomProduit           varchar(254),
+   formeGalenique       varchar(254),
+   quantiteRecu         int,
+   quantiteLivree       int,
+   fournisseur          varchar(254),
+   dateFab              datetime,
+   dateExp              datetime,
+
+
+   After genarting the tables with CRUD Generator we will 
+   come back to the tables and create the foreign keys
+
+   php artisan crud:generate Reactifs --fields='idReactifs#number; designation#string; conditionnement#string;lot#number; fabriquant#string;' --view-path= --controller-namespace=Admin --route-group=admin --form-helper=html
+
+idReactifs           int not null,
+   designation          varchar(254),
+   conditionnement      varchar(254),
+   lot                  varchar(254),
+   fabricant            varchar(254),
+   quantite             int,
+   dateFab              datetime,
+   dateExp              datetime,
